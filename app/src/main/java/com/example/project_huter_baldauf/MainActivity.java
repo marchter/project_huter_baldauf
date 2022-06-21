@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         serverUri = getString(R.string.hivemq_uri);
         user = getString(R.string.hivemq_user);
         password = getString(R.string.hivemq_password);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         mqttConnectOptions.setUserName(user);
         mqttConnectOptions.setPassword(password.toCharArray());
 
+
         try {
             //addToHistory("Connecting to " + serverUri);
             mqttAndroidClient.connect(mqttConnectOptions, null, new IMqttActionListener() {
@@ -88,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         ((TextView)findViewById(R.id.Text)).setText(defTopic);
     }
 
-    /*  public void publish(View v)
+    public void publish(View v)
     {
         try {
             String mes = defTopic + clientId + ((EditText)findViewById(R.id.txt_sent)).getText().toString();
@@ -100,13 +102,13 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("MQTT", "Connection lost");
             }
         } catch (MqttException e) {
-            Log.e("MQTT", "Subscribed!");
+            Log.e("MQTT", "Message Sent");
             Log.e("MQTT", e.getMessage());
             Log.e("MQTT", e.getStackTrace().toString());
         }
-    }*/
+    }
 
-   /* public void subscribe(View v)
+    public void subscribe(View v)
     {
         try {
             mqttAndroidClient.subscribe(defTopic, 0, null, new IMqttActionListener() {
@@ -122,8 +124,10 @@ public class MainActivity extends AppCompatActivity {
             });
 
         } catch (MqttException ex){
+            Log.i("MQTT", "Exception whilst subscribing");
+
             System.err.println("Exception whilst subscribing");
             ex.printStackTrace();
         }
-    }*/
+    }
 }

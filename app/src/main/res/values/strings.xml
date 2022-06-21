@@ -3,4 +3,5 @@
         <string name="hivemq_uri">a0cc000afaba456f92928f38517e3f67.s2.eu.hivemq.cloud</string>
         <string name="hivemq_user">huterbaldauf</string>
         <string name="hivemq_password">huterbaldauf1!</string>
+
 </resources>
